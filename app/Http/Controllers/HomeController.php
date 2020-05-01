@@ -27,8 +27,8 @@
          */
         public function index()
         {
-
-            return view('home');
+            $status=[];
+            return view('home',['status' => $status]);
         }
 
         public function shouthome()
@@ -63,7 +63,9 @@
         public function saveprofile(request $request)
         {
             $request->validate([
-                'nickname' => 'required'
+                'nickname' => 'required|unique:Users',
+                'name' => 'nullable',
+                'email' => 'required',
             ]);
             $saveprofile = Auth::user();
             if ($request->hasAny('name', 'email', 'nickname')) {

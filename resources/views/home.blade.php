@@ -34,7 +34,8 @@
 @endsection
 
 @section('status')
-    @foreach ($status as $st)
+    @if(count($status) > 0)
+    @foreach ($status  as $st)
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-10 ">
@@ -59,4 +60,18 @@
             </div>
         </div>
     @endforeach
+   @else
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-10 ">
+                    <div class="status shadow-sm">
+                        <div class="row p-3 pb-2">
+                                <h4>There no Status please update one.</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
